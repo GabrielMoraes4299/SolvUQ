@@ -60,7 +60,7 @@ export function FileLoadingModal({ isOpen, fileName, progress }: FileLoadingModa
           <div
             style={{
               height: "100%",
-              background: colors.ink,
+              background: colors.accentGradient,
               borderRadius: 5,
               transition: "width .2s ease",
               width: progressStr,

@@ -1,6 +1,6 @@
 "use client";
 
-import { codGray, colors } from "@/lib/theme";
+import { slate, colors } from "@/lib/theme";
 import type { Study } from "@/hooks/useHistory";
 import { TrashIcon } from "../icons";
 
@@ -71,12 +71,12 @@ export function ConfirmDeleteModal({ study, onCancel, onConfirm }: ConfirmDelete
           <div
             onClick={onCancel}
             onMouseEnter={(e) => (e.currentTarget.style.background = colors.buttonSecondaryHover)}
-            onMouseLeave={(e) => (e.currentTarget.style.background = codGray[200])}
+            onMouseLeave={(e) => (e.currentTarget.style.background = slate[200])}
             style={{
               flex: 1,
               height: 46,
               borderRadius: 12,
-              background: codGray[200],
+              background: slate[200],
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import { codGray, colors } from "@/lib/theme";
+import { slate, colors } from "@/lib/theme";
 import type { MoleculeResult, RadarRange } from "@/types/prediction";
 import { RadarChart, RadarLegend, type RadarSeriesKey } from "./RadarChart";
 
@@ -56,12 +56,12 @@ export function RadarModal({ molecule, radarAxes, radarRanges, onClose }: RadarM
           <div
             onClick={onClose}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = codGray[200];
-              e.currentTarget.style.color = codGray[900];
+              e.currentTarget.style.background = slate[200];
+              e.currentTarget.style.color = slate[900];
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "transparent";
-              e.currentTarget.style.color = codGray[500];
+              e.currentTarget.style.color = slate[500];
             }}
             style={{
               width: 32,
@@ -71,7 +71,7 @@ export function RadarModal({ molecule, radarAxes, radarRanges, onClose }: RadarM
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
-              color: codGray[500],
+              color: slate[500],
               fontSize: 22,
             }}
           >

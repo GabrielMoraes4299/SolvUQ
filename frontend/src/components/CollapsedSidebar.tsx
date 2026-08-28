@@ -1,6 +1,6 @@
 "use client";
 
-import { codGray, colors } from "@/lib/theme";
+import { slate, colors } from "@/lib/theme";
 import type { Study } from "@/hooks/useHistory";
 import { GraduationCapIcon, ClockIcon } from "./icons";
 
@@ -84,7 +84,7 @@ export function CollapsedSidebar({
           >
             <ClockIcon size={22} color={colors.navIdleStroke} strokeWidth={1.6} />
           </div>
-          <div style={{ width: 40, height: 1, background: codGray[300], margin: "2px 0" }} />
+          <div style={{ width: 40, height: 1, background: slate[300], margin: "2px 0" }} />
         </div>
 
         {/* lista de estudos: única parte que rola */}

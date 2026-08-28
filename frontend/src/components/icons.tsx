@@ -1,4 +1,4 @@
-import { codGray, colors } from "@/lib/theme";
+import { slate, colors } from "@/lib/theme";
 
 interface IconProps {
   size?: number;
@@ -16,7 +16,7 @@ export function GraduationCapIcon({ size = 26, color = colors.white, strokeWidth
   );
 }
 
-export function ClockIcon({ size = 26, color = codGray[700], strokeWidth = 1.5 }: IconProps) {
+export function ClockIcon({ size = 26, color = slate[700], strokeWidth = 1.5 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="8.5" />
@@ -25,7 +25,7 @@ export function ClockIcon({ size = 26, color = codGray[700], strokeWidth = 1.5 }
   );
 }
 
-export function BookIcon({ size = 26, color = codGray[800], strokeWidth = 1.6 }: IconProps) {
+export function BookIcon({ size = 26, color = slate[800], strokeWidth = 1.6 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
       <path d="M6 4h12a1 1 0 0 1 1 1v16l-7-4-7 4V5a1 1 0 0 1 1-1z" />
@@ -42,7 +42,7 @@ export function PlusIcon({ size = 20, color = colors.white, strokeWidth = 2.2 }:
   );
 }
 
-export function XIcon({ size = 13, color = codGray[600], strokeWidth = 1.6 }: IconProps) {
+export function XIcon({ size = 13, color = slate[600], strokeWidth = 1.6 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 12 12" fill="none">
       <line x1="1.5" y1="1.5" x2="10.5" y2="10.5" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
@@ -52,7 +52,7 @@ export function XIcon({ size = 13, color = codGray[600], strokeWidth = 1.6 }: Ic
 }
 
 /** Ícone de molécula (bolinha central + 3 elipses), usado no estado vazio e nos cards. */
-export function MoleculeGlyph({ size = 42, color = codGray[500], strokeWidth = 1.5 }: IconProps) {
+export function MoleculeGlyph({ size = 42, color = slate[500], strokeWidth = 1.5 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 40 40" fill="none" stroke={color} strokeWidth={strokeWidth}>
       <circle cx="20" cy="20" r="2.6" fill={color} stroke="none" />
@@ -63,7 +63,7 @@ export function MoleculeGlyph({ size = 42, color = codGray[500], strokeWidth = 1
   );
 }
 
-export function UploadCloudIcon({ size = 34, color = codGray[600], strokeWidth = 1.5 }: IconProps) {
+export function UploadCloudIcon({ size = 34, color = slate[600], strokeWidth = 1.5 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 15V4" />
@@ -79,11 +79,11 @@ export function CsvFileIcon({ size = 52 }: { size?: number }) {
     <svg width={size} height={h} viewBox="0 0 52 64" fill="none">
       <path
         d="M6 2h28l14 14v44a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"
-        fill={codGray[100]}
-        stroke={codGray[300]}
+        fill={slate[100]}
+        stroke={slate[300]}
         strokeWidth="1.5"
       />
-      <path d="M34 2v14h14" fill={codGray[200]} stroke={codGray[300]} strokeWidth="1.5" />
+      <path d="M34 2v14h14" fill={slate[200]} stroke={slate[300]} strokeWidth="1.5" />
       <rect x="2" y="34" width="40" height="20" rx="4" fill={colors.fileBadge} />
       <text x="22" y="48" fontFamily="monospace" fontSize="11" fontWeight="700" fill={colors.white} textAnchor="middle">
         CSV
@@ -92,7 +92,7 @@ export function CsvFileIcon({ size = 52 }: { size?: number }) {
   );
 }
 
-export function PencilIcon({ size = 18, color = codGray[700], strokeWidth = 1.6 }: IconProps) {
+export function PencilIcon({ size = 18, color = slate[700], strokeWidth = 1.6 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
       <path d="M14 4l6 6-11 11H3v-6z" />
@@ -100,7 +100,7 @@ export function PencilIcon({ size = 18, color = codGray[700], strokeWidth = 1.6 
   );
 }
 
-export function DiagonalLineIcon({ size = 18, color = codGray[700], strokeWidth = 1.6 }: IconProps) {
+export function DiagonalLineIcon({ size = 18, color = slate[700], strokeWidth = 1.6 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round">
       <line x1="4" y1="20" x2="20" y2="4" />
@@ -117,7 +117,7 @@ export function ArrowRightIcon({ size = 20, color = colors.white, strokeWidth = 
   );
 }
 
-export function ArrowLeftIcon({ size = 20, color = codGray[700], strokeWidth = 1.8 }: IconProps) {
+export function ArrowLeftIcon({ size = 20, color = slate[700], strokeWidth = 1.8 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
       <path d="M15 6l-6 6 6 6" />
@@ -125,7 +125,7 @@ export function ArrowLeftIcon({ size = 20, color = codGray[700], strokeWidth = 1
   );
 }
 
-export function SearchIcon({ size = 20, color = codGray[500], strokeWidth = 1.8 }: IconProps) {
+export function SearchIcon({ size = 20, color = slate[500], strokeWidth = 1.8 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round">
       <circle cx="11" cy="11" r="7" />
@@ -134,7 +134,7 @@ export function SearchIcon({ size = 20, color = codGray[500], strokeWidth = 1.8 
   );
 }
 
-export function FilterIcon({ size = 18, color = codGray[700], strokeWidth = 2 }: IconProps) {
+export function FilterIcon({ size = 18, color = slate[700], strokeWidth = 2 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round">
       <line x1="12" y1="5" x2="12" y2="19" />
@@ -151,7 +151,7 @@ export function CheckIcon({ size = 12, color = colors.white, strokeWidth = 1.8 }
   );
 }
 
-export function Spinner({ size = 22, color = codGray[400] }: { size?: number; color?: string }) {
+export function Spinner({ size = 22, color = slate[400] }: { size?: number; color?: string }) {
   return (
     <div
       style={{

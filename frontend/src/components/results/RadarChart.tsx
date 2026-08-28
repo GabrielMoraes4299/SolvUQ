@@ -1,6 +1,16 @@
+import { brand, slate } from "@/lib/theme";
 import type { RadarRange } from "@/types/prediction";
 
 export type RadarSeriesKey = "upper" | "lower" | "compound";
+
+/** Limites de referência ficam em tons quentes discretos (são só o "fundo"
+ * de contexto) e o composto — o dado que o usuário veio ver — leva o azul da
+ * marca por cima, com traço mais grosso. */
+const UPPER_COLOR = "#e8b45f";
+const UPPER_FILL = "#f7dfb4";
+const LOWER_COLOR = "#dd7f90";
+const LOWER_FILL = "#f3c8d0";
+const COMPOUND_COLOR = brand.blue;
 
 interface RadarChartProps {
   descriptors: Record<string, number>;
@@ -12,9 +22,9 @@ interface RadarChartProps {
 }
 
 const LEGEND_ITEMS: { key: RadarSeriesKey; color: string; label: string }[] = [
-  { key: "upper", color: "#f0a92e", label: "Upper Limit" },
-  { key: "lower", color: "#e8637a", label: "Lower Limit" },
-  { key: "compound", color: "#5b8def", label: "Compound Properties" },
+  { key: "upper", color: UPPER_COLOR, label: "Upper Limit" },
+  { key: "lower", color: LOWER_COLOR, label: "Lower Limit" },
+  { key: "compound", color: COMPOUND_COLOR, label: "Compound Properties" },
 ];
 
 interface RadarLegendProps {
@@ -51,7 +61,7 @@ export function RadarLegend({ activeKey, onSelect }: RadarLegendProps) {
             }}
           >
             <span style={{ width: 8, height: 8, borderRadius: "50%", background: item.color, flexShrink: 0 }} />
-            <span style={{ fontSize: 11, color: "#5a5a5a", fontWeight: isActive ? 700 : 400 }}>{item.label}</span>
+            <span style={{ fontSize: 11, color: slate[600], fontWeight: isActive ? 700 : 400 }}>{item.label}</span>
           </div>
         );
       })}
@@ -107,38 +117,39 @@ export function RadarChart({ descriptors, axes, ranges, highlight }: RadarChartP
   return (
     <svg viewBox="-34 4 368 292" style={{ width: "100%", height: "100%" }}>
       {[0.25, 0.5, 0.75, 1].map((t, ri) => (
-        <polygon key={`r${ri}`} points={pointsStr(R * t)} fill="none" stroke="#cfcfcf" strokeWidth={1} />
+        <polygon key={`r${ri}`} points={pointsStr(R * t)} fill="none" stroke={slate[300]} strokeWidth={1} />
       ))}
       {axes.map((_, i) => {
         const [x, y] = point(R, i);
-        return <line key={`s${i}`} x1={CX} y1={CY} x2={x} y2={y} stroke="#d8d8d8" strokeWidth={1} />;
+        return <line key={`s${i}`} x1={CX} y1={CY} x2={x} y2={y} stroke={slate[300]} strokeWidth={1} />;
       })}
       <polygon
         points={pointsStr(R)}
-        fill="#f6cb80"
-        fillOpacity={0.5 * opacityFor("upper")}
-        stroke="#f0a92e"
+        fill={UPPER_FILL}
+        fillOpacity={0.45 * opacityFor("upper")}
+        stroke={UPPER_COLOR}
         strokeOpacity={opacityFor("upper")}
         strokeWidth={widthFor("upper", 1.5)}
       />
       <polygon
         points={pointsStr(R * FLOOR)}
-        fill="#f3aab8"
-        fillOpacity={0.7 * opacityFor("lower")}
-        stroke="#e8637a"
+        fill={LOWER_FILL}
+        fillOpacity={0.6 * opacityFor("lower")}
+        stroke={LOWER_COLOR}
         strokeOpacity={opacityFor("lower")}
         strokeWidth={widthFor("lower", 1.5)}
       />
       <polygon
         points={pointsStr(valueRadius)}
-        fill="none"
-        stroke="#5b8def"
+        fill={COMPOUND_COLOR}
+        fillOpacity={0.14 * opacityFor("compound")}
+        stroke={COMPOUND_COLOR}
         strokeOpacity={opacityFor("compound")}
-        strokeWidth={widthFor("compound", 2)}
+        strokeWidth={widthFor("compound", 2.5)}
       />
       {axes.map((key, i) => {
         const [x, y] = point(valueRadius(key), i);
-        return <circle key={`d${i}`} cx={x} cy={y} r={2.4} fill="#5b8def" fillOpacity={opacityFor("compound")} />;
+        return <circle key={`d${i}`} cx={x} cy={y} r={2.4} fill={COMPOUND_COLOR} fillOpacity={opacityFor("compound")} />;
       })}
       {axes.map((key, i) => {
         const [x, y] = point(R + 17, i);
@@ -153,7 +164,7 @@ export function RadarChart({ descriptors, axes, ranges, highlight }: RadarChartP
             y={y}
             fontSize={11}
             fontWeight={700}
-            fill="#2f3033"
+            fill={slate[900]}
             stroke="#fff"
             strokeWidth={3.5}
             paintOrder="stroke"

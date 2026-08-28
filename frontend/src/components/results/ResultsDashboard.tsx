@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, type MouseEvent } from "react";
-import { codGray, colors } from "@/lib/theme";
+import { slate, colors } from "@/lib/theme";
 import { useResolvedNames } from "@/hooks/useResolvedName";
 import { queueNameResolution } from "@/lib/nameResolver";
 import { deleteMolecules } from "@/lib/api";
@@ -43,7 +43,7 @@ function Checkbox({ checked, onClick }: { checked: boolean; onClick: (e: MouseEv
         width: 19,
         height: 19,
         borderRadius: 5,
-        border: `1.5px solid ${checked ? colors.ink : codGray[400]}`,
+        border: `1.5px solid ${checked ? colors.ink : slate[400]}`,
         background: checked ? colors.ink : "transparent",
         cursor: "pointer",
         display: "flex",
@@ -186,7 +186,7 @@ export function ResultsDashboard({ studyId, results, radarAxes, radarRanges, onM
           top: 136,
           width: 120,
           height: 56,
-          background: codGray[300],
+          background: slate[300],
           borderRadius: 10,
           display: "flex",
           alignItems: "center",
@@ -234,18 +234,18 @@ export function ResultsDashboard({ studyId, results, radarAxes, radarRanges, onM
                 value={regMin}
                 onChange={(e) => setRegMin(e.target.value)}
                 placeholder="min"
-                style={{ width: "100%", height: 36, border: `1px solid ${codGray[300]}`, borderRadius: 8, padding: "0 10px", fontSize: 14, color: colors.cardTitle }}
+                style={{ width: "100%", height: 36, border: `1px solid ${slate[300]}`, borderRadius: 8, padding: "0 10px", fontSize: 14, color: colors.cardTitle }}
               />
               <span style={{ color: colors.emptySubtitle }}>–</span>
               <input
                 value={regMax}
                 onChange={(e) => setRegMax(e.target.value)}
                 placeholder="max"
-                style={{ width: "100%", height: 36, border: `1px solid ${codGray[300]}`, borderRadius: 8, padding: "0 10px", fontSize: 14, color: colors.cardTitle }}
+                style={{ width: "100%", height: 36, border: `1px solid ${slate[300]}`, borderRadius: 8, padding: "0 10px", fontSize: 14, color: colors.cardTitle }}
               />
             </div>
           </div>
-          <div onClick={clearFilters} style={{ alignSelf: "flex-start", fontSize: 14, color: codGray[500], cursor: "pointer", textDecoration: "underline" }}>
+          <div onClick={clearFilters} style={{ alignSelf: "flex-start", fontSize: 14, color: slate[500], cursor: "pointer", textDecoration: "underline" }}>
             Clear filters
           </div>
         </div>
@@ -279,7 +279,7 @@ export function ResultsDashboard({ studyId, results, radarAxes, radarRanges, onM
           alignItems: "center",
           fontWeight: 600,
           fontSize: 14,
-          color: codGray[800],
+          color: slate[800],
           paddingLeft: 6,
         }}
       >
@@ -343,17 +343,17 @@ export function ResultsDashboard({ studyId, results, radarAxes, radarRanges, onM
                   }}
                 />
               </div>
-              <div style={{ width: 150, color: codGray[800], fontWeight: 500, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", paddingRight: 10 }}>
+              <div style={{ width: 150, color: slate[800], fontWeight: 500, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", paddingRight: 10 }}>
                 {nameFor(m)}
               </div>
-              <div style={{ width: 230, fontFamily: "monospace", fontSize: 12, color: codGray[500], whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", paddingRight: 12 }}>
+              <div style={{ width: 230, fontFamily: "monospace", fontSize: 12, color: slate[500], whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", paddingRight: 12 }}>
                 {m.smiles}
               </div>
-              <div style={{ width: 130, display: "flex", alignItems: "center", color: codGray[800] }}>
+              <div style={{ width: 130, display: "flex", alignItems: "center", color: slate[800] }}>
                 <span style={{ width: 56 }}>{m.descriptors.MolWt.toFixed(2)}</span>
                 <InfoIcon text={INFO_TEXT.MW} />
               </div>
-              <div style={{ width: 110, display: "flex", alignItems: "center", color: codGray[800] }}>
+              <div style={{ width: 110, display: "flex", alignItems: "center", color: slate[800] }}>
                 <span style={{ width: 46 }}>{m.descriptors.MolLogP.toFixed(2)}</span>
                 <InfoIcon text={INFO_TEXT.LogP} />
               </div>
@@ -380,7 +380,7 @@ export function ResultsDashboard({ studyId, results, radarAxes, radarRanges, onM
               transform: "translateX(-50%)",
               display: "flex",
               alignItems: "center",
-              background: codGray[900],
+              background: slate[900],
               borderRadius: 999,
               boxShadow: "0 10px 28px rgba(0,0,0,.35)",
               overflow: "hidden",

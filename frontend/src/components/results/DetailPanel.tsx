@@ -1,6 +1,6 @@
 "use client";
 
-import { codGray, colors } from "@/lib/theme";
+import { slate, colors } from "@/lib/theme";
 import { structureImageUrl } from "@/lib/molecules";
 import { useResolvedName } from "@/hooks/useResolvedName";
 import { classTagColor } from "@/lib/solubility";
@@ -86,7 +86,7 @@ export function DetailPanel({ molecule, radarAxes, radarRanges, onOpenImage, onO
             marginTop: 4,
             fontFamily: "monospace",
             fontSize: 13,
-            color: codGray[500],
+            color: slate[500],
             whiteSpace: "nowrap",
             overflow: "hidden",
             textOverflow: "ellipsis",
@@ -158,7 +158,7 @@ export function DetailPanel({ molecule, radarAxes, radarRanges, onOpenImage, onO
               background: colors.tableHeaderBg,
               fontWeight: 600,
               fontSize: 14,
-              color: codGray[800],
+              color: slate[800],
               flexShrink: 0,
             }}
           >
@@ -184,7 +184,7 @@ export function DetailPanel({ molecule, radarAxes, radarRanges, onOpenImage, onO
                 >
                   <span style={{ color: colors.tabIdleText, fontWeight: 500 }}>{row.label}</span>
                   <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <span style={{ color: codGray[800], fontWeight: 600 }}>{formatted}</span>
+                    <span style={{ color: slate[800], fontWeight: 600 }}>{formatted}</span>
                     <InfoIcon text={row.info} />
                   </div>
                 </div>
@@ -209,7 +209,7 @@ export function DetailPanel({ molecule, radarAxes, radarRanges, onOpenImage, onO
             background: colors.tableHeaderBg,
             fontWeight: 600,
             fontSize: 14,
-            color: codGray[800],
+            color: slate[800],
           }}
         >
           LogS
@@ -281,7 +281,7 @@ export function DetailPanel({ molecule, radarAxes, radarRanges, onOpenImage, onO
         >
           {molecule.alertName}
         </span>
-        <div style={{ marginTop: 10, fontSize: 14, color: codGray[700], lineHeight: 1.5 }}>{molecule.alertDescription}</div>
+        <div style={{ marginTop: 10, fontSize: 14, color: slate[700], lineHeight: 1.5 }}>{molecule.alertDescription}</div>
       </div>
     </div>
   );
@@ -294,11 +294,11 @@ function ExpandButton({ onClick }: { onClick: () => void }) {
       title="Expand"
       onMouseEnter={(e) => {
         e.currentTarget.style.background = colors.white;
-        e.currentTarget.style.color = codGray[900];
+        e.currentTarget.style.color = slate[900];
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.background = "rgba(255,255,255,0.85)";
-        e.currentTarget.style.color = codGray[600];
+        e.currentTarget.style.color = slate[600];
       }}
       style={{
         position: "absolute",
@@ -312,7 +312,7 @@ function ExpandButton({ onClick }: { onClick: () => void }) {
         alignItems: "center",
         justifyContent: "center",
         cursor: "pointer",
-        color: codGray[600],
+        color: slate[600],
         fontSize: 34,
         lineHeight: "16px",
         boxShadow: "0 1px 3px rgba(0,0,0,0.15)",

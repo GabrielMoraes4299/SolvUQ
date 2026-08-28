@@ -55,7 +55,7 @@ function computeScale() {
 export function HomeScreen() {
   const [scale, setScale] = useState(1);
   const [stage, setStage] = useState<Stage>("input");
-  const [activeTab, setActiveTab] = useState<ActiveTab>("smiles");
+  const [activeTab, setActiveTab] = useState<ActiveTab>("arquivo");
   const [molecules, setMolecules] = useState<Molecule[]>([]);
   const [comingSoon, setComingSoon] = useState<string | null>(null);
   const [fileStage, setFileStage] = useState<FileStage>("idle");
@@ -171,7 +171,7 @@ export function HomeScreen() {
 
   const resetForm = () => {
     setStage("input");
-    setActiveTab("smiles");
+    setActiveTab("arquivo");
     setMolecules([]);
     setFileStage("idle");
     setFileName("");
@@ -336,10 +336,10 @@ export function HomeScreen() {
                 />
                 <div style={{ display: "flex", flexDirection: "column", width: "max-content"}}>
                   <span style={{ fontWeight: 800, fontSize: 34, letterSpacing: -0.5, whiteSpace: "nowrap",lineHeight: 0.95 }}>
-                    <span style={{ color: "#132a4d" }}>Chem</span>
+                    <span style={{ color: colors.ink }}>Chem</span>
                     <span
                       style={{
-                        backgroundImage: "linear-gradient(90deg, #2563eb, #14b8a6)",
+                        backgroundImage: colors.accentGradient,
                         WebkitBackgroundClip: "text",
                         backgroundClip: "text",
                         color: "transparent",
@@ -353,7 +353,7 @@ export function HomeScreen() {
                       height: 2,
                       width: "100%",
                       borderRadius: 2,
-                      backgroundImage: "linear-gradient(90deg, #2563eb, #14b8a6)",
+                      backgroundImage: colors.accentGradient,
                     }}
                   />
                 </div>

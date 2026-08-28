@@ -55,7 +55,7 @@ function computeScale() {
 export function HomeScreen() {
   const [scale, setScale] = useState(1);
   const [stage, setStage] = useState<Stage>("input");
-  const [activeTab, setActiveTab] = useState<ActiveTab>("smiles");
+  const [activeTab, setActiveTab] = useState<ActiveTab>("arquivo");
   const [molecules, setMolecules] = useState<Molecule[]>([]);
   const [comingSoon, setComingSoon] = useState<string | null>(null);
   const [fileStage, setFileStage] = useState<FileStage>("idle");
@@ -171,7 +171,7 @@ export function HomeScreen() {
 
   const resetForm = () => {
     setStage("input");
-    setActiveTab("smiles");
+    setActiveTab("arquivo");
     setMolecules([]);
     setFileStage("idle");
     setFileName("");

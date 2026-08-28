@@ -1,169 +1,112 @@
 /**
- * Escala neutra "slate" (50-950) — cinza com um leve tingimento azulado
- * (mesmo matiz do navy/azul da marca, ~218°), em vez de cinza puro. Mesma
- * progressão de claridade do cinza neutro anterior (contraste conferido
- * degrau a degrau, sem regressão), só troca a temperatura da cor de fundo/
- * texto do app inteiro para combinar com o logo. Todo tom neutro do app
- * deve vir de um desses 11 degraus, para evitar cinzas quase-iguais
- * espalhados pelos componentes. Cores semânticas não-neutras (status
- * verde/laranja/vermelho, acentos do radar, badge "selecionado" etc.) ficam
- * fora da escala, propositalmente.
+ * Paleta de cores da interface. Baseada na escala neutra "cod-gray" (50-950)
+ * — todo tom de cinza usado no app deve vir de um desses 11 degraus, para
+ * evitar a proliferação de cinzas quase-iguais espalhados pelos componentes.
+ * Cores semânticas não-neutras (status verde/laranja/vermelho, acentos do
+ * radar, badge "selecionado" etc.) ficam fora da escala, propositalmente.
  */
-export const slate = {
-  50: "#f6f7fa",
-  100: "#eef1f6",
-  200: "#d8dfeb",
-  300: "#bac7de",
-  400: "#809ac7",
-  500: "#4467a3",
-  600: "#354d76",
-  700: "#293b59",
-  800: "#1a2436",
-  900: "#121824",
-  950: "#080b10",
+export const codGray = {
+  50: "#fafafa",
+  100: "#f5f5f5",
+  200: "#e6e6e6",
+  300: "#d3d3d3",
+  400: "#a3a3a3",
+  500: "#727272",
+  600: "#535353",
+  700: "#404040",
+  800: "#272727",
+  900: "#1a1a1a",
+  950: "#0a0a0a",
 } as const;
-
-/**
- * Paleta de marca — extraída direto do logo (lupa azul→teal sobre a
- * molécula, "Chem" em navy escuro, hexágonos verde/azul ao fundo). Usada
- * pontualmente por cima da escala neutra acima: navy substitui o antigo
- * "ink" (cinza-quase-preto) em textos de destaque, botões primários e
- * estados ativos; o gradiente azul→teal marca elementos de progresso/
- * destaque; o verde reforça o significado "confiável" nos status.
- */
-export const brand = {
-  navy: "#132a4d",
-  navyDeep: "#0c1d38",
-  blue: "#2563eb",
-  teal: "#14b8a6",
-  // Versão escurecida do teal, para quando o tom precisa carregar texto
-  // branco por cima (ver brandMix) — o teal puro não tem contraste pra isso.
-  tealDeep: "#0d8177",
-  // Escurecido em relação ao tom "puro" do logo — esse verde é usado como
-  // cor de TEXTO (rótulo de status), não só como indicador/dot, e precisa
-  // de >=4.5:1 de contraste contra fundo branco (WCAG AA texto normal).
-  green: "#147a54",
-  gradient: "linear-gradient(90deg, #2563eb, #14b8a6)",
-} as const;
-
-function hexToRgb(hex: string) {
-  const n = parseInt(hex.slice(1), 16);
-  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
-}
-
-/** Cor intermediária do gradiente da marca (blue -> teal), com `t` de 0 a 1.
- * Serve pra "espalhar" o gradiente por elementos separados (barras, badges),
- * onde aplicar o CSS gradient em cada um repetiria o ciclo inteiro dentro de
- * cada elemento em vez de progredir ao longo do conjunto.
- *
- * `onDark` (padrão) termina num teal escurecido em vez do teal puro do logo:
- * quando o elemento carrega texto branco por cima (badge numerado), o teal
- * claro só alcança 2.5:1 de contraste. Passe `false` para elementos sem
- * texto (barras de progresso), que podem usar o teal vivo da marca. */
-export function brandMix(t: number, onDark = true) {
-  const [r1, g1, b1] = hexToRgb(brand.blue);
-  const [r2, g2, b2] = hexToRgb(onDark ? brand.tealDeep : brand.teal);
-  const k = Math.max(0, Math.min(1, t));
-  const r = Math.round(r1 + (r2 - r1) * k);
-  const g = Math.round(g1 + (g2 - g1) * k);
-  const b = Math.round(b1 + (b2 - b1) * k);
-  return `rgb(${r}, ${g}, ${b})`;
-}
 
 export const colors = {
-  pageBackground: slate[300],
-  canvas: slate[50],
-  panel: slate[200],
+  pageBackground: codGray[300],
+  canvas: codGray[50],
+  panel: codGray[200],
 
-  ink: brand.navy,
-  inkText: slate[50],
+  ink: codGray[800],
+  inkText: codGray[50],
   white: "#ffffff",
 
-  accentGradient: brand.gradient,
-  accentBlue: brand.blue,
-  accentTeal: brand.teal,
+  buttonSecondary: codGray[300],
+  buttonSecondaryBorder: codGray[300],
+  buttonSecondaryHover: codGray[300],
 
-  buttonSecondary: slate[300],
-  buttonSecondaryBorder: slate[300],
-  buttonSecondaryHover: slate[300],
+  divider: codGray[300],
 
-  divider: slate[300],
+  tabBar: codGray[300],
+  tabIdleText: codGray[600],
 
-  tabBar: slate[300],
-  tabIdleText: slate[600],
+  inputField: codGray[200],
+  addButton: codGray[300],
+  addButtonHover: codGray[400],
 
-  inputField: slate[200],
-  addButton: slate[300],
-  addButtonHover: slate[400],
+  emptyIcon: codGray[500],
+  emptyTitle: codGray[600],
+  emptySubtitle: codGray[400],
 
-  emptyIcon: slate[500],
-  emptyTitle: slate[600],
-  emptySubtitle: slate[400],
+  card: codGray[200],
+  cardIcon: codGray[300],
+  cardIconStroke: codGray[600],
+  cardTitle: codGray[900],
+  cardSubtitle: codGray[400],
+  cardRemoveHover: codGray[100],
+  cardRemoveStroke: codGray[600],
 
-  card: slate[200],
-  cardIcon: slate[300],
-  cardIconStroke: slate[600],
-  cardTitle: slate[900],
-  cardSubtitle: slate[400],
-  cardRemoveHover: slate[100],
-  cardRemoveStroke: slate[600],
+  dropZoneOuter: codGray[200],
+  dropZoneInner: codGray[200],
+  dropZoneOutline: codGray[400],
+  dropZoneText: codGray[600],
+  dropZoneActiveOutline: codGray[500],
 
-  dropZoneOuter: slate[200],
-  dropZoneInner: slate[200],
-  dropZoneOutline: slate[400],
-  dropZoneText: slate[600],
-  dropZoneActiveOutline: slate[500],
-
-  fileIconBg: slate[100],
-  fileIconBorder: slate[300],
-  fileIconTab: slate[200],
+  fileIconBg: codGray[100],
+  fileIconBorder: codGray[300],
+  fileIconTab: codGray[200],
   fileBadge: "#1e8f5b",
-  fileName: slate[700],
-  fileRemoveText: slate[500],
+  fileName: codGray[700],
+  fileRemoveText: codGray[500],
 
   toolButtonShadow: "rgba(0, 0, 0, 0.1)",
-  toolIconStroke: slate[700],
+  toolIconStroke: codGray[700],
 
-  secondarySend: slate[300],
-  secondarySendHover: slate[300],
-  secondarySendText: slate[700],
+  secondarySend: codGray[300],
+  secondarySendHover: codGray[300],
+  secondarySendText: codGray[700],
 
-  stepNumberBg: brand.blue,
-  stepTitle: brand.navy,
-  stepDesc: slate[600],
+  stepNumberBg: codGray[800],
+  stepTitle: codGray[800],
+  stepDesc: codGray[500],
 
   modalOverlay: "rgba(38, 38, 38, 0.42)",
   modalShadow: "rgba(0, 0, 0, 0.3)",
-  modalBg: slate[50],
-  modalIconBg: slate[800],
+  modalBg: codGray[50],
+  modalIconBg: codGray[800],
 
-  historyItem: slate[100],
-  historyItemHover: slate[200],
+  historyItem: codGray[100],
+  historyItemHover: codGray[200],
   historyDeleteHover: "#e0d3d3",
   historyDeleteStroke: "#b2544c",
 
-  progressTrack: slate[200],
+  progressTrack: codGray[200],
 
   // Status de confiabilidade (tabela de resultados / cromatização de risco).
-  // Verde afinado pro tom verde-azulado da marca (era um verde genérico);
-  // laranja/vermelho ficam neutros de propósito — não fazem parte da marca.
-  statusHighConfidence: brand.green,
+  statusHighConfidence: "#3aa657",
   statusReviewSuggested: "#e0932f",
   statusRiskAlert: "#d64545",
 
-  sidebarCollapsed: slate[200],
-  navIdleBg: slate[300],
-  navIdleStroke: slate[700],
+  sidebarCollapsed: codGray[200],
+  navIdleBg: codGray[300],
+  navIdleStroke: codGray[700],
 
-  tableHeaderBg: slate[300],
-  tableRowAlt: slate[100],
-  tableBorder: slate[200],
-  tableDividerRow: slate[200],
-  tableRowHover: slate[100],
-  tableRowActive: "#dce8fc",
+  tableHeaderBg: codGray[300],
+  tableRowAlt: codGray[100],
+  tableBorder: codGray[200],
+  tableDividerRow: codGray[200],
+  tableRowHover: codGray[100],
+  tableRowActive: "#d7e3f7",
 
-  detailPanelBg: slate[200],
-  detailFooterBg: slate[300],
+  detailPanelBg: codGray[200],
+  detailFooterBg: codGray[300],
 } as const;
 
 /**

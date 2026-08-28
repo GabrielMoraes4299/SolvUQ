@@ -1,4 +1,4 @@
-import { brandMix, colors } from "@/lib/theme";
+import { colors } from "@/lib/theme";
 
 const STEPS = [
   {
@@ -33,7 +33,7 @@ export function StepsPanel() {
         gap: 26,
       }}
     >
-      {STEPS.map((step, i) => (
+      {STEPS.map((step) => (
         <div key={step.num} style={{ display: "flex", flexDirection: "column", gap: 9 }}>
           <div style={{ display: "flex", flexDirection: "row", gap: 11, alignItems: "center" }}>
             <div
@@ -41,7 +41,7 @@ export function StepsPanel() {
                 width: 22,
                 height: 22,
                 borderRadius: 5,
-                background: brandMix(i / (STEPS.length - 1)),
+                background: colors.stepNumberBg,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",

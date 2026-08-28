@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { slate, colors } from "@/lib/theme";
+import { codGray, colors } from "@/lib/theme";
 
 interface InfoIconProps {
   text: string;
@@ -40,7 +40,7 @@ export function InfoIcon({ text }: InfoIconProps) {
           width: 14,
           height: 14,
           borderRadius: "50%",
-          background: slate[400],
+          background: codGray[400],
           color: colors.white,
           fontSize: 9,
           fontWeight: 700,

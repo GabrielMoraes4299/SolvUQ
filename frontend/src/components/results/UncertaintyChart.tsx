@@ -1,4 +1,4 @@
-import { slate, colors } from "@/lib/theme";
+import { codGray, colors } from "@/lib/theme";
 import { SOLUBILITY_ZONE_BOUNDARIES, SOLUBILITY_ZONE_LABELS } from "@/lib/solubility";
 
 interface UncertaintyChartProps {
@@ -218,7 +218,7 @@ export function UncertaintyChart({ logS, lowerBound, upperBound }: UncertaintyCh
               left: `${p}%`,
               width: 1.5,
               height: LABEL_TOP - CONNECTOR_TOP,
-              background: slate[400],
+              background: codGray[400],
               transform: "translateX(-50%)",
             }}
           />
@@ -301,7 +301,7 @@ export function UncertaintyChart({ logS, lowerBound, upperBound }: UncertaintyCh
         ))}
       </div>
 
-      <div style={{ marginTop: 14, display: "flex", justifyContent: "space-between", fontSize: 12, color: slate[400] }}>
+      <div style={{ marginTop: 14, display: "flex", justifyContent: "space-between", fontSize: 12, color: codGray[400] }}>
         <span>← less soluble</span>
         <span>more soluble →</span>
       </div>

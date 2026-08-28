@@ -9,9 +9,7 @@ body {
 }
 
 body {
-  /* Bate com colors.pageBackground (slate[300]) — evita um flash de cor
-     errada antes do React montar e aplicar o tema de verdade. */
-  background: rgb(186, 199, 222);
+  background: rgb(210, 210, 210);
   font-family: var(--font-inter), Inter, sans-serif;
 }
 

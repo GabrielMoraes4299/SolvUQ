@@ -336,10 +336,10 @@ export function HomeScreen() {
                 />
                 <div style={{ display: "flex", flexDirection: "column", width: "max-content"}}>
                   <span style={{ fontWeight: 800, fontSize: 34, letterSpacing: -0.5, whiteSpace: "nowrap",lineHeight: 0.95 }}>
-                    <span style={{ color: colors.ink }}>Chem</span>
+                    <span style={{ color: "#132a4d" }}>Chem</span>
                     <span
                       style={{
-                        backgroundImage: colors.accentGradient,
+                        backgroundImage: "linear-gradient(90deg, #2563eb, #14b8a6)",
                         WebkitBackgroundClip: "text",
                         backgroundClip: "text",
                         color: "transparent",
@@ -353,7 +353,7 @@ export function HomeScreen() {
                       height: 2,
                       width: "100%",
                       borderRadius: 2,
-                      backgroundImage: colors.accentGradient,
+                      backgroundImage: "linear-gradient(90deg, #2563eb, #14b8a6)",
                     }}
                   />
                 </div>
